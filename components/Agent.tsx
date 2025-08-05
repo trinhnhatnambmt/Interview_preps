@@ -2,6 +2,13 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
+export enum CallStatus {
+    INACTIVE = "INACTIVE",
+    CONNECTING = "CONNECTING",
+    ACTIVE = "ACTIVE",
+    FINISHED = "FINISHED",
+}
+
 const Agent = ({
     userName,
 }: // userId,
@@ -11,12 +18,6 @@ const Agent = ({
 // questions,
 AgentProps) => {
     const isSpeaking = true;
-    enum CallStatus {
-        INACTIVE = "INACTIVE",
-        CONNECTING = "CONNECTING",
-        ACTIVE = "ACTIVE",
-        FINISHED = "FINISHED",
-    }
 
     const callStatus = CallStatus.FINISHED;
 
@@ -72,7 +73,7 @@ AgentProps) => {
                 </div>
             )}
 
-            <div className="w-full flex justify-center mt-10">
+            {/* <div className="w-full flex justify-center mt-10">
                 {callStatus !== CallStatus.ACTIVE ? (
                     <button className="relative btn-call">
                         <span
@@ -92,7 +93,7 @@ AgentProps) => {
                 ) : (
                     <button className="btn-disconnect">End</button>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 };
