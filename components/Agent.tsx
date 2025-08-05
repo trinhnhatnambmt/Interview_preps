@@ -73,32 +73,24 @@ AgentProps) => {
             )}
 
             <div className="w-full flex justify-center mt-10">
-                {callStatus !== "ACTIVE" ? (
-                    <button
-                        className="relative btn-call"
-                        // onClick={() => handleCall()}
-                    >
+                {callStatus !== CallStatus.ACTIVE ? (
+                    <button className="relative btn-call">
                         <span
                             className={cn(
                                 "absolute animate-ping rounded-full opacity-75",
-                                callStatus !== "CONNECTING" && "hidden"
+                                callStatus !== CallStatus.CONNECTING && "hidden"
                             )}
                         />
 
                         <span className="relative">
-                            {callStatus === "INACTIVE" ||
-                            callStatus === "FINISHED"
+                            {callStatus === CallStatus.INACTIVE ||
+                            callStatus === CallStatus.FINISHED
                                 ? "Call"
                                 : ". . ."}
                         </span>
                     </button>
                 ) : (
-                    <button
-                        className="btn-disconnect"
-                        // onClick={() => handleDisconnect()}
-                    >
-                        End
-                    </button>
+                    <button className="btn-disconnect">End</button>
                 )}
             </div>
         </div>
